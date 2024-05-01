@@ -233,12 +233,7 @@ main {
   position: absolute;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+ 
   background: linear-gradient(
     180deg,
     transparent,
@@ -257,6 +252,13 @@ main {
   margin-bottom: 8px;
   margin-right: 10px;
   color: #fff;
+  font-weight: bold; /* Peso da fonte */
+        color: white; /* Cor do texto */
+        text-shadow: 
+            -1px -1px 0 #000,  
+             1px -1px 0 #000,
+            -1px  1px 0 #000,
+             1px  1px 0 #000;
 }
 
 /* LEFT BOTTOM */
@@ -508,6 +510,13 @@ main {
 
 .user-info h4 {
   margin-left: 40px;
+  font-weight: bold; /* Peso da fonte */
+          /* Cor do texto */
+        text-shadow: 
+            -1px -1px 0 #e4d8d8,  
+             1px -1px 0 #cdbdbd,
+            -1px  1px 0 #f5efef,
+             1px  1px 0 #eeeeee;
 }
 
 .user-info img {
@@ -944,4 +953,102 @@ main {
   .friends-activity {
     display: none;
   }
+}
+
+/* ----------------------------------------------------------- */
+#card {
+  width: 400px;
+  aspect-ratio: 1 / 0.7;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+#card #image-box {
+  position: relative;
+  border-radius: 8px;
+}
+
+#card #image-box img {
+  width: 30%;
+  height: 30%;
+  object-fit: cover;
+  transition: 0.5s ease-in-out;
+  border-radius: 8px;
+}
+
+#card #overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 30%;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#card:hover #overlay {
+  opacity: 1;
+}
+
+#card #overlay #h2,
+#card #overlay p {
+  margin: 0;
+}
+
+#card #overlay #h2 {
+  margin-bottom: 10px;
+}
+
+#card #overlay2 p {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+#card:hover #overlay #p {
+  opacity: 1;
+}
+
+#card #image-box::before,
+#card #image-box::after {
+  content: "";
+  position: absolute;
+  top: 4px; /* Ajuste para borda externa */
+  left: 4px; /* Ajuste para borda externa */
+  right: 4px; /* Ajuste para borda externa */
+  bottom: 4px; /* Ajuste para borda externa */
+  border: 2px solid white;
+  border-radius: 8px;
+  opacity: 0; /* Torna a borda invisível por padrão */
+  transition: opacity 0.4s ease-in-out; /* Adiciona uma transição suave */
+}
+
+#card:hover #image-box::before,
+#card:hover #image-box::after {
+  opacity: 1; /* Torna a borda visível quando o mouse passa sobre a imagem */
+}
+
+#card #image-box::after {
+  bottom: 40px; /* Ajuste para borda externa */
+}
+
+#card:hover #image-box img {
+  filter: grayscale(0.5) brightness(1.2); /* Ajusta o filtro de escala de cinza e o brilho */
+}
+#p {
+  color: #97e7d1;
+  color: #c3f4fc;
+}
+#h4 {
+  color: #97e7d1;
+  color: #c3f4fc;
 }

@@ -6,6 +6,51 @@
     <title>Notícias 3D</title>
     <!-- Alterado o caminho da folha de estilos -->
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+      #p {
+        color: #97e7d1;
+        color: #c3f4fc;
+        border: 2px solid white; /* Adiciona uma borda sólida de 2px de largura em preto */
+        padding: 10px;
+        text-align: center; /* Centraliza o texto */
+        font-weight: bold; /* Peso da fonte */
+        color: white; /* Cor do texto */
+        text-shadow: 
+            -1px -1px 0 #000,  
+             1px -1px 0 #000,
+            -1px  1px 0 #000,
+             1px  1px 0 #000; 
+      }
+      #we {
+       
+        text-align: center; /* Centraliza o texto */
+        font-weight: bold; /* Peso da fonte */
+        color: white; /* Cor do texto */
+        text-shadow: 
+            -1px -1px 0 #000,  
+             1px -1px 0 #000,
+            -1px  1px 0 #000,
+             1px  1px 0 #000; 
+      }
+      #h4 #h3  {
+
+        color: #97e7d1;
+        color: #c3f4fc;
+        border: 2px dashed red; /* Adiciona uma borda tracejada de 2px de largura em vermelho */
+        padding: 10px;
+        text-align: center; /* Centraliza o texto */
+        
+        font-weight: bold; /* Peso da fonte */
+        color: white; /* Cor do texto */
+        text-shadow: 
+            -1px -1px 0 #000,  
+             1px -1px 0 #000,
+            -1px  1px 0 #000,
+             1px  1px 0 #000; 
+      }
+
+    </style>
+    
 </head>
 <body>
     <main>
@@ -67,25 +112,29 @@
         <section>
             <div class="left-content" id="homeContent">
                     <div class="activities">
-                        <h1>Popular Activities</h1>
-                        <div class="activity-container">
-                        <div class="image-container img-one">
-                            <img src="../img/1.png" alt="tennis" />
-                            <div class="overlay">
-                            <h3>Tennis</h3>
-                            </div>
-                        </div>
-                        <div class="image-container img-two">
-                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/3bab6a71-c842-4a50-9fed-b4ce650cb478" alt="hiking" />
+                        <h1>Principais políticos</h1>
+                          <div class="activity-container">
+                            <div class="image-container img-one">
+                                <img src="../img/lula.png" alt="tennis" />
+                          <div class="overlay">
+                            <h3 id="we">Luís Inácio Lula da Silva</h3>
+                            <p id="p"> é uma das personalidades mais famosas e importantes na política brasileira.</p>
+                          </div>
+                    </div>
+
+              <div class="image-container img-two">
+                <img src="../img/jair.png" alt="hiking" />
                 <div class="overlay">
-                  <h3>Hiking</h3>
+                  <h3 id="we">Jair Bolsonaro</h3>
+                  <p id="p">Nascido em Campinas, descendente de uma família italiana e desde a juventude seguiu carreira militar.</p>
                 </div>
               </div>
 
               <div class="image-container img-three">
-                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/c8e88356-8df5-4ac5-9e1f-5b9e99685021" alt="running" />
+                <img src="../img/dilma.png" alt="running" />
                 <div class="overlay">
-                  <h3>Running</h3>
+                  <h3 id="we">Dilma Rousseff</h3>
+                  <p id="p">Dilma Roussef foi a primeira mulher a presidir o Brasil, e foi inclusive reeleita. Já familiarizada com os meandros do poder, Dilma foi durante cinco anos ministra da Casa Civil (2005-2010) do governo Lula.</p>
                 </div>
               </div>
 
