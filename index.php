@@ -133,9 +133,9 @@
                     <li><a href="#">Food &amp; Treats</a></li>
                     <li><a href="#">Toys</a></li>
                     <li><a href="#">Beds &amp; Furniture</a></li>
-                    <button class="btn-outline-dark">Shop All<span class="material-symbols-outlined">
+                    <a href="painel/index.php"><button class="btn-outline-dark">Shop All<span class="material-symbols-outlined">
                             arrow_forward
-                        </span></button>
+                        </span></button></a>
                 </ul>
 
             </li>

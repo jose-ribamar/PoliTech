@@ -4,78 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notícias 3D</title>
-    <!-- Alterado o caminho da folha de estilos -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+  <body>
     <main>
-        <nav class="main-menu">
-            <h1>Fitness App</h1>
-            <!-- Corrigido o caminho da imagem do logo -->
-            <img class="logo" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4cfdcb5a-0137-4457-8be1-6e7bd1f29ebb" alt="" />
-            <ul>
-                <li class="nav-item active">
-                    <b></b>
-                    <b></b>
-                    <a href="#" onclick="showContent('homeContent')" id="homeLink">
-                        <i class="fa fa-house nav-icon">Home</i>
-                        <span class="nav-text">Home</span>
-                    </a>
-                </li>
+      <nav class="main-menu">
+        <h1>Fitness App</h1>
+        <img class="logo" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4cfdcb5a-0137-4457-8be1-6e7bd1f29ebb" alt="" />
+        <ul>
+        <div class="header">
+          <li class="nav-item active">
+            <b></b>
+            <b></b>
+            <a href="#" onclick="showHomePage()" id="homeLink">
+              <i class="fa fa-house nav-icon">oo</i>
+              <span class="nav-text">Home</span>
+            </a>
+          </li>
 
-                <li class="nav-item">
-                    <b></b>
-                    <b></b>
-                    <a href="#1" onclick="showContent('profileContent')" id="profileLink">
-                        <i class="fa fa-user nav-icon">Perfil</i>
-                        <span class="nav-text">Profile</span>
-                    </a>
-                </li>
+          <li class="nav-item">
+            <b></b>
+            <b></b>
+            <a href="#">
+              <i class="fa fa-user nav-icon">oo</i>
+              <span class="nav-text">Profile</span>
+            </a>
+          </li>
 
-                <li class="nav-item">
-                    <b></b>
-                    <b></b>
-                    <a href="#2" onclick="showContent('scheduleContent')" id="scheduleLink">
-                        <i class="fa fa-calendar-check nav-icon">oo</i>
-                        <span class="nav-text">Schedule</span>
-                    </a>
-                </li>
+          <li class="nav-item">
+            <b></b>
+            <b></b>
+            <a href="produtos.php">
+              <i class="fa fa-calendar-check nav-icon">oo</i>
+              <span class="nav-text">Schedule</span>
+            </a>
+          </li>
 
-                <li class="nav-item">
-                    <b></b>
-                    <b></b>
-                    <a href="#3" onclick="showContent('activitiesContent')" id="activitiesLink">
-                        <i class="fa fa-person-running nav-icon">oo</i>
-                        <span class="nav-text">Activities</span>
-                    </a>
-                </li>
+          <li class="nav-item">
+            <b></b>
+            <b></b>
+            <a href="#">
+              <i class="fa fa-person-running nav-icon">oo</i>
+              <span class="nav-text">Activities</span>
+            </a>
+          </li>
 
-                <li class="nav-item">
-                    <b></b>
-                    <b></b>
-                    <a href="#4" onclick="showContent('settingsContent')" id="settingsLink">
-                        <i class="fa fa-sliders nav-icon">oo</i>
-                        <span class="nav-text">Settings</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        
+          <li class="nav-item">
+            <b></b>
+            <b></b>
+            <a href="#">
+              <i class="fa fa-sliders nav-icon">oo</i>
+              <span class="nav-text">Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      </div>
 
-        <!-- ---------------------------------------------------------------------------------------- -->
-        
-        <section>
-            <div class="left-content" id="homeContent">
-                    <div class="activities">
-                        <h1>Popular Activities</h1>
-                        <div class="activity-container">
-                        <div class="image-container img-one">
-                            <img src="../img/1.png" alt="tennis" />
-                            <div class="overlay">
-                            <h3>Tennis</h3>
-                            </div>
-                        </div>
-                        <div class="image-container img-two">
+      <section class="content">
+        <div class="left-content">
+          <div class="activities">
+            <h1>Popular Activities</h1>
+            <div class="activity-container">
+              <div class="image-container img-one">
+                <img src="../img/1.png" alt="tennis" />
+                <div class="overlay">
+                  <h3>Tennis</h3>
+                </div>
+              </div>
+
+              <div class="image-container img-two">
                 <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/3bab6a71-c842-4a50-9fed-b4ce650cb478" alt="hiking" />
                 <div class="overlay">
                   <h3>Hiking</h3>
@@ -148,6 +146,8 @@
                   <button class="btn">Join</button>
                 </div>
 
+                <!-- ================= -->
+
                 <div class="day-and-activity activity-three">
                   <div class="day">
                     <h1>17</h1>
@@ -203,19 +203,19 @@
             </div>
           </div>
         </div>
-        <!-- ============================= -->
+
         <div class="right-content">
           <div class="user-info">
             <div class="icon-container">
-              <i class="fa fa-bell nav-icon">  </i>
-              <i class="fa fa-message nav-icon">  </i>
+              <i class="fa fa-bell nav-icon">qq</i>
+              <i class="fa fa-message nav-icon">ww</i>
             </div>
             <h4>Kelsey Miller</h4>
             <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/40b7cce2-c289-4954-9be0-938479832a9c" alt="user" />
           </div>
 
-          <!-- <div class="active-calories"> -->
-            <!-- <h1 style="align-self: flex-start">Active Calories</h1> -->
+          <div class="active-calories">
+            <h1 style="align-self: flex-start">Active Calories</h1>
             <div class="active-calories-container">
               <div class="box" style="--i: 85%">
                 <div class="circle">
@@ -230,7 +230,7 @@
             </div>
           </div>
 
-           <div class="mobile-personal-bests">
+          <div class="mobile-personal-bests">
             <h1>Personal Bests</h1>
             <div class="personal-bests-container">
               <div class="best-item box-one">
@@ -248,63 +248,31 @@
             </div>
           </div>
 
-         </div>
-        
-        
+          <div class="friends-activity">
+            <h1>Friends Activity</h1>
+            <div class="card-container">
+              <div class="card">
+                <div class="card-user-info">
+                  <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/9290037d-a5b2-4f50-aea3-9f3f2b53b441" alt="" />
+                  <h2>Jane</h2>
+                </div>
+                <img class="card-img" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/bef54506-ea45-4e42-a1b6-23a48f61c5e8" alt="" />
+                <p>We completed the 30-Day Running Streak Challenge!🏃‍♀️🎉</p>
+              </div>
 
-                       
-                        
-    
-
-        <!-- ---------------------------------------------------------------------------------------- -->
-       
-        <div class="left-content" id="profileContent" >
-            <center>
-                <p>op</p></center>
+              <div class="card card-two">
+                <div class="card-user-info">
+                  <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/42616ef2-ba96-49c7-80ea-c3cf1e2ecc89" alt="" />
+                  <h2>Mike</h2>
+                </div>
+                <img class="card-img" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/2dcc1b94-06c5-4c62-b886-53b9e433fd44" alt="" />
+                <p>I just set a new record in cycling: 30 miles!💪</p>
+              </div>
             </div>
-
-            <div class="left-content" id="scheduleContent" >
-                <h1>Agenda</h1>
-                <p>Aqui está o conteúdo da agenda.</p>
-            </div>
-
-            <div class="left-content" id="activitiesContent" >
-                <h1>Atividades</h1>
-                <p>Aqui está o conteúdo das atividades.</p>
-            </div>
-
-            <div class="left-content" id="settingsContent" >
-                <h1>Configurações</h1>
-                <p>Aqui está o conteúdo das configurações.</p>
-            </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </main>
-
-    <script>
-        function showContent(contentId) {
-            var contents = document.querySelectorAll('.left-content');
-            contents.forEach(function(content) {
-                content.style.display = 'none';
-            });
-            var selectedContent = document.getElementById(contentId);
-            selectedContent.style.display = 'block';
-            setActiveLink(contentId.replace('Content', 'Link'));
-        }
-
-        function setActiveLink(linkId) {
-            var links = document.querySelectorAll('.nav-item a');
-            links.forEach(function(link) {
-                link.classList.remove('active');
-            });
-            var activeLink = document.getElementById(linkId);
-            activeLink.classList.add('active');
-        }
-
-        // Exibir a página inicial por padrão
-        showContent('homeContent');
-    </script>
-    <script src="../js/js2.js"></script>
-</body>
+  </body>
+  <script src="../js/js2.js"></script>
 </html>
-
-
