@@ -991,7 +991,7 @@ main {
                     <b></b>
                     <b></b>
                     <a href="#3" onclick="showContent('activitiesContent')" id="activitiesLink">
-                        <i class="fa fa-person-running nav-icon">oo</i>
+                        <i class="fa fa-person-running nav-icon">Activities</i>
                         <span class="nav-text">Activities</span>
                     </a>
                 </li>
@@ -1000,7 +1000,7 @@ main {
                     <b></b>
                     <b></b>
                     <a href="#4" onclick="showContent('settingsContent')" id="settingsLink">
-                        <i class="fa fa-sliders nav-icon">oo</i>
+                        <i class="fa fa-sliders nav-icon">oSettingso</i>
                         <span class="nav-text">Settings</span>
                     </a>
                 </li>
