@@ -1,3 +1,7 @@
+<?php 
+ include_once('../banco/config.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
