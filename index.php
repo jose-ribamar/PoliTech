@@ -1,6 +1,4 @@
-<?php 
- include_once('../banco/config.php');
-?>
+
 <link rel="stylesheet" href="css/io.css">
 <header>
         <div class="banner">Get free delivery on orders over $80</div>
