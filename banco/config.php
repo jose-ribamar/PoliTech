@@ -1,6 +1,6 @@
 <?php
 
-$ligar = mysqli_connect( 'localhost' ,'root', '' , 'centro');
+$ligar = mysqli_connect( 'localhost' ,'root', '' , 'politech');
 
 
 ?>
