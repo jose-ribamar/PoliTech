@@ -1000,21 +1000,21 @@
             <h1>Popular Activities</h1>
             <div class="activity-container">
               <div class="image-container img-one">
-                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/467cf682-03fb-4fae-b129-5d4f5db304dd" alt="tennis" />
+                <img src="../img/bolsonaro.png" alt="tennis" />
                 <div class="overlay">
                   <h3>Tennis</h3>
                 </div>
               </div>
 
               <div class="image-container img-two">
-                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/3bab6a71-c842-4a50-9fed-b4ce650cb478" alt="hiking" />
+                <img src="../img/1.png" alt="hiking" />
                 <div class="overlay">
                   <h3>Hiking</h3>
                 </div>
               </div>
 
               <div class="image-container img-three">
-                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/c8e88356-8df5-4ac5-9e1f-5b9e99685021" alt="running" />
+                <img src="../img/dilma.png" alt="running" />
                 <div class="overlay">
                   <h3>Running</h3>
                 </div>
@@ -1217,7 +1217,7 @@
       });
     });
     </script>
-
+<!-- 
 #p {
         color: #97e7d1;
         color: #c3f4fc;
@@ -1259,4 +1259,4 @@
             -1px  1px 0 #000,
              1px  1px 0 #000; 
       }
-
+ -->
