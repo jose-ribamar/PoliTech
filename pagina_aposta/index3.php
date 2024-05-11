@@ -1,4 +1,6 @@
-<style>@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&family=Roboto:wght@300;400;500;700&display=swap");
+<style>
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&family=Roboto:wght@300;400;500;700&display=swap");
 
     *,
     *::before,
@@ -940,7 +942,9 @@
       .friends-activity {
         display: none;
       }
-    }</style>
+    }
+    
+    </style>
 <body>
     <main>
       <nav class="main-menu">
