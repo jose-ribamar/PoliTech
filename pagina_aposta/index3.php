@@ -1218,45 +1218,5 @@
     });
     </script>
 <!-- 
-#p {
-        color: #97e7d1;
-        color: #c3f4fc;
-        border: 2px solid white; /* Adiciona uma borda sólida de 2px de largura em preto */
-        padding: 10px;
-        text-align: center; /* Centraliza o texto */
-        font-weight: bold; /* Peso da fonte */
-        color: white; /* Cor do texto */
-        text-shadow: 
-            -1px -1px 0 #000,  
-             1px -1px 0 #000,
-            -1px  1px 0 #000, 
-             1px  1px 0 #000; 
-      }
-      #we {
-       
-        text-align: center; /* Centraliza o texto */
-        font-weight: bold; /* Peso da fonte */
-        color: white; /* Cor do texto */
-        text-shadow: 
-            -1px -1px 0 #000,  
-             1px -1px 0 #000,
-            -1px  1px 0 #000,
-             1px  1px 0 #000; 
-      }
-      #h4 #h3  {
 
-        color: #97e7d1;
-        color: #c3f4fc;
-        border: 2px dashed red; /* Adiciona uma borda tracejada de 2px de largura em vermelho */
-        padding: 10px;
-        text-align: center; /* Centraliza o texto */
-        
-        font-weight: bold; /* Peso da fonte */
-        color: white; /* Cor do texto */
-        text-shadow: 
-            -1px -1px 0 #000,  
-             1px -1px 0 #000,
-            -1px  1px 0 #000,
-             1px  1px 0 #000; 
-      }
  -->
