@@ -19,7 +19,7 @@ include_once('../banco/config.php');
 // inserir os valores que estao presente nos arquivos de cadastro
 
 
-$foto = move_uploaded_file($arquivo['tmp_name'], '../uploads/'.$arquivo['name']);
+$foto = $_POST["foto"];
 $nome_imagem = $_POST["nome_imagem"];
 
 
@@ -28,7 +28,7 @@ $nome_imagem = $_POST["nome_imagem"];
 // $descricao = $_POST["Descricao"];
 // insere os valors no banco de dados
 
-$sql_cadastro = mysqli_query($ligar, "INSERT INTO principais (nome , foto ) values ('$nome_imagem','$foto')");
+$sql_cadastro = mysqli_query($ligar, "INSERT INTO principais (foto, nome) values ('$foto','$nome_imagem')");
 
 
 
