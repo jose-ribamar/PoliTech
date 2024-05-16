@@ -1,4 +1,10 @@
 <?php
+
+
+$foto = $_POST["foto"];
+// $nome_imagem = $_POST["nome_imagem"];
+
+
     if(isset($_POST['acao'])){
         $arquivo = $_FILES['foto'];
 
@@ -19,8 +25,7 @@ include_once('../banco/config.php');
 // inserir os valores que estao presente nos arquivos de cadastro
 
 
-$foto = $_POST["foto"];
-$nome_imagem = $_POST["nome_imagem"];
+
 
 
 
@@ -28,25 +33,25 @@ $nome_imagem = $_POST["nome_imagem"];
 // $descricao = $_POST["Descricao"];
 // insere os valors no banco de dados
 
-$sql_cadastro = mysqli_query($ligar, "INSERT INTO principais (foto, nome) values ('$foto','$nome_imagem')");
+$sql_cadastro = mysqli_query($ligar, "INSERT INTO principais (nome) values ('$nome_imagem')");
 
 
 
 // descricao se o cadastro foi feito com secesso
-if ($sql_cadastro == true){
-    // caso o cadastro tenha cido bem sucedido
-    echo "<script>
-        alert('Vaga cadastrada com sucesso!');
-        window.location.href='subindo.php';
-    </script>";
-}else{
-//  caso nao tenha realizado o cadastro
-    echo "<script>
-        alert('Falha no cadastro!');
-        window.location.href='subindo.php';
-    </script>";
+// if ($sql_cadastro == true){
+//     // caso o cadastro tenha cido bem sucedido
+//     echo "<script>
+//         alert('Vaga cadastrada com sucesso!');
+//         window.location.href='subindo.php';
+//     </script>";
+// }else{
+// //  caso nao tenha realizado o cadastro
+//     echo "<script>
+//         alert('Falha no cadastro!');
+//         window.location.href='subindo.php';
+//     </script>";
 
-}
+// }
 
 
 ?>
