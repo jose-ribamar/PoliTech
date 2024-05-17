@@ -244,7 +244,7 @@ nav > #utility {
 .card-large > ul > li a {
     line-height: 32px;
     font-size: 14px;
-    /*    border: 1px solid red;*/
+    border: 1px solid red;
 }
 
 
@@ -452,8 +452,7 @@ section.hero h1 {
 .card-med > .card-image > img {
     width: 80%;
     height: 80%;
-    /*    border: 1px solid red;*/
-}
+    border: 1px solid red;
 
 section:not(.hero) {
     padding: calc(var(--pg-margin)/2) var(--pg-margin);
@@ -466,7 +465,7 @@ section h2 {
     text-align: center;
     color: var(--text-01);
     margin-bottom: 32px;
-    /*    padding-bottom: 24px;*/
+    padding-bottom: 24px;
 }
 
 
@@ -503,7 +502,7 @@ section h2 {
     font-size: 14px;
     line-height: 1.4;
     font-weight: 500;
-    /*    margin-top: 8px;*/
+    margin-top: 8px;
     margin-bottom: 24px;
 }
 
@@ -887,4 +886,4 @@ footer ul li {
 
     }
 
-}
+}}
