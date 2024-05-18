@@ -1,4 +1,6 @@
 <?php
+include_once('../banco/config.php');
+
 if (isset($_FILES['foto'])) {
     $arquivo = $_FILES['foto'];
 
@@ -19,14 +21,23 @@ if (isset($_FILES['foto'])) {
         die("Tipo de arquivo não aceito");
     }
 
-    $ImagemPath = move_uploaded_file($arquivo["tmp_name"], $pasta . $novo_nome . "." . $extensao);
+    $path = $pasta . $novo_nome . "." . $extensao;
+    $ImagemPath = move_uploaded_file($arquivo["tmp_name"], $path);
+
     if ($ImagemPath) {
-        echo "<p>Arquivo enviado com sucesso. <a target=\"_blank\" href='../uploads/$novo_nome.$extensao'>Clique aqui para ver a imagem</a></p>";
+        $upload_date = date("Y-m-d H:i:s");
+        $stmt = $mysqli->prepare("INSERT INTO principais (path, upload_date) VALUES (?, ?)");
+        $stmt->bind_param("ss", $path, $upload_date);
+        
+        if ($stmt->execute()) {
+            echo "<p>Arquivo enviado com sucesso.</p>";
+        } else {
+            echo "Erro ao salvar informações no banco de dados.";
+        }
+
+        $stmt->close();
     } else {
         echo "Falha ao enviar o arquivo.";
     }
 }
-
-// informa o banco de dados que queremos usar
-include_once('../banco/config.php');
 ?>
