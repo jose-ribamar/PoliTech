@@ -1,8 +1,11 @@
 <?php
 include_once('../banco/config.php');
 
+$nome_imagem = $_POST['nome_imagem'];
+
 if (isset($_FILES['foto'])) {
     $arquivo = $_FILES['foto'];
+    
 
     if ($arquivo['error']) {
         die("Erro ao enviar o arquivo");
@@ -26,11 +29,15 @@ if (isset($_FILES['foto'])) {
 
     if ($ImagemPath) {
         $upload_date = date("Y-m-d H:i:s");
-        $stmt = $mysqli->prepare("INSERT INTO principais (path, upload_date) VALUES (?, ?)");
-        $stmt->bind_param("ss", $path, $upload_date);
+        $stmt = $mysqli->prepare("INSERT INTO principais (path, nome_imagem, upload_date) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $path,$nome_imagem,  $upload_date);
         
         if ($stmt->execute()) {
-            echo "<p>Arquivo enviado com sucesso.</p>";
+            // echo "<p>Arquivo enviado com sucesso.</p>";
+            echo "<script>
+                alert('Usuário cadastrado com sucesso!');
+                window.location.href='../campo_img/visualizar_img.php';
+            </script>";
         } else {
             echo "Erro ao salvar informações no banco de dados.";
         }
