@@ -1,4 +1,4 @@
-
+<!-- 
 <link rel="stylesheet" href="css/io.css">
 <header>
         <div class="banner">Get free delivery on orders over $80</div>
@@ -133,11 +133,16 @@
                 <ul>Cats
                     <li><a href="#">Food &amp; Treats</a></li>
                     <li><a href="#">Toys</a></li>
-                    <li><a href="#">Beds &amp; Furniture</a></li>
-                    <a href="painel/index.php"><button class="btn-outline-dark">Shop All<span class="material-symbols-outlined">
+                    <li><a href="#">Beds &amp; Furniture</a></li> -->
+                    <a href="pagina_aposta/index.php">
+                        <button class="btn-outline-dark">Shop All<span class="material-symbols-outlined">
                             arrow_forward
                         </span></button></a>
-                </ul>
+                        <a href="pagina_aposta/subindo.php">
+                        <button class="btn-outline-dark">kkkkkkkkkkkkk<span class="material-symbols-outlined">
+                            ooooooooooo
+                        </span></button></a>
+                <!-- </ul>
 
             </li>
 
@@ -258,4 +263,4 @@ contact_support
 <script src="js/js.js"></script>
 
 
-Recursos
+Recursos -->
