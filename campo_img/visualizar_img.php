@@ -34,7 +34,7 @@ $sql_query = $mysqli -> query("SELECT * FROM principais") or die($mysqli -> erro
 
     ?> 
         <tr>
-            <td> <a target="_blank" href="<?= $arquivo['path']; ?>">Visualizar</a></td>
+            <td> <a target="_blank" href="<?= $arquivo['path']; ?>"><img height="50" src="<?=$arquivo['path'] ?>" alt=""></a></td>
             <td><?= $arquivo['nome_imagem']; ?> </td>
             <td><?= date("d/m/y", strtotime($arquivo['upload_date']))  ?> </td>
         </tr>
