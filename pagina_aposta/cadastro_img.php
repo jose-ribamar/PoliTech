@@ -1,50 +1,68 @@
 <?php
 include_once('../banco/config.php');
 
-$nome_imagem = $_POST['nome_imagem'];
-
-if (isset($_FILES['foto'])) {
-    $arquivo = $_FILES['foto'];
-    
-
-    if ($arquivo['error']) {
-        die("Erro ao enviar o arquivo");
+function enviar_Arquivo($error, $size, $name, $tmp_name, $nome_imagem, $mysqli){
+    if ($error) {
+        return "Erro ao enviar o arquivo";
     }
 
-    if ($arquivo['size'] > 2099999) {
-        die("Arquivo muito grande! MAX: 2MB");
+    if ($size > 2099999) {
+        return "Arquivo muito grande! MAX: 2MB";
     }
 
     $pasta = "../uploads/";
-    $nome_arquivo = $arquivo['name'];
     $novo_nome = uniqid();
-    $extensao = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
+    $extensao = strtolower(pathinfo($name, PATHINFO_EXTENSION));
 
     if ($extensao != "jpg" && $extensao != "png") {
-        die("Tipo de arquivo não aceito");
+        return "Tipo de arquivo não aceito";
     }
 
     $path = $pasta . $novo_nome . "." . $extensao;
-    $ImagemPath = move_uploaded_file($arquivo["tmp_name"], $path);
+    $ImagemPath = move_uploaded_file($tmp_name, $path);
 
     if ($ImagemPath) {
         $upload_date = date("Y-m-d H:i:s");
         $stmt = $mysqli->prepare("INSERT INTO principais (path, nome_imagem, upload_date) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $path,$nome_imagem,  $upload_date);
+        $stmt->bind_param("sss", $path, $nome_imagem, $upload_date);
         
         if ($stmt->execute()) {
-            // echo "<p>Arquivo enviado com sucesso.</p>";
-            echo "<script>
-                alert('Usuário cadastrado com sucesso!');
-                window.location.href='../campo_img/visualizar_img.php';
-            </script>";
+            $stmt->close();
+            return true;
         } else {
-            echo "Erro ao salvar informações no banco de dados.";
+            $stmt->close();
+            return "Erro ao salvar informações no banco de dados.";
         }
-
-        $stmt->close();
     } else {
-        echo "Falha ao enviar o arquivo.";
+        return "Falha ao enviar o arquivo.";
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto'])) {
+    $nome_imagem = $_POST['nome_imagem'];
+    $arquivos = $_FILES['foto'];
+    $tudo_certo = true;
+
+    foreach ($arquivos['name'] as $index => $arq) {
+        $deu_certo = enviar_Arquivo($arquivos['error'][$index], $arquivos['size'][$index], $arquivos['name'][$index], $arquivos['tmp_name'][$index], $nome_imagem, $mysqli);
+        if ($deu_certo !== true) {
+            echo $deu_certo;
+            $tudo_certo = false;
+        }
+    }
+
+    if ($tudo_certo) {
+        echo "<script>
+            alert('Usuário cadastrado com sucesso!');
+            window.location.href='../campo_img/visualizar_img.php';
+        </script>";
+    }
+    else{
+        "<script>
+            alert('Falha ao enviar um ou mais arquivos!');
+            window.location.href='subindo.php';
+        </script>";
     }
 }
 ?>
+
