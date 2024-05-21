@@ -9,7 +9,7 @@
 <body>
 
     <form action="cadastro_img.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="foto"/>
+        <input multiple type="file" name="foto[]"/>
         <input type="text" name="nome_imagem" id="idnome_imagem">
         <input type="submit" name="acao" value="Enviar">
     </form>
