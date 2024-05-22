@@ -22,6 +22,7 @@ function enviar_Arquivo($error, $size, $name, $tmp_name, $nome_imagem, $mysqli){
     $ImagemPath = move_uploaded_file($tmp_name, $path);
 
     if ($ImagemPath) {
+        date_default_timezone_set('America/Sao_Paulo');
         $upload_date = date("Y-m-d H:i:s");
         $stmt = $mysqli->prepare("INSERT INTO principais (path, nome_imagem, upload_date) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $path, $nome_imagem, $upload_date);
