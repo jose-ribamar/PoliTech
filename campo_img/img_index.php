@@ -1,108 +1,92 @@
-<?php
-include_once('../banco/config.php');
-
-function enviar_Arquivo($error, $size, $name, $tmp_name, $nome_imagem, $mysqli){
-    if ($error) {
-        return "Erro ao enviar o arquivo";
-    }
-
-    if ($size > 2099999) {
-        return "Arquivo muito grande! MAX: 2MB";
-    }
-
-    $pasta = "../uploads/";
-    $extensao = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-
-    if ($extensao != "jpg" && $extensao != "png") {
-        return "Tipo de arquivo não aceito";
-    }
-
-    // Gere um nome único para a imagem
-    $novo_nome = uniqid($nome_imagem . "_") . "." . $extensao;
-    $path = $pasta . $novo_nome;
-
-    // Move o arquivo para a pasta de uploads
-    if (move_uploaded_file($tmp_name, $path)) {
-        // Obtém a data e hora atual
-        $upload_date = date("Y-m-d H:i:s");
-
-        // Prepara a inserção no banco de dados
-        $stmt = $mysqli->prepare("INSERT INTO principais (path, nome_imagem, upload_date) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $path, $nome_imagem, $upload_date);
-
-        // Executa a inserção
-        if ($stmt->execute()) {
-            $stmt->close();
-            return true;
-        } else {
-            $stmt->close();
-            return "Erro ao salvar informações no banco de dados.";
-        }
-    } else {
-        return "Falha ao enviar o arquivo.";
-    }
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto'])) {
-    $nomes_imagens = $_POST['nome_imagem'];
-    $arquivos = $_FILES['foto'];
-    $tudo_certo = true;
-
-    // Percorre os arquivos enviados
-    foreach ($arquivos['name'] as $index => $arq) {
-        $nome_imagem = $nomes_imagens[$index]; // Nome específico da imagem
-        $deu_certo = enviar_Arquivo($arquivos['error'][$index], $arquivos['size'][$index], $arquivos['name'][$index], $arquivos['tmp_name'][$index], $nome_imagem, $mysqli);
-        if ($deu_certo !== true) {
-            echo $deu_certo;
-            $tudo_certo = false;
-        }
-    }
-
-    // Se todos os arquivos foram carregados com sucesso
-    if ($tudo_certo) {
-        echo "<script>
-            alert('Imagens cadastradas com sucesso!');
-            window.location.href='img_index.php';
-        </script>";
-    } else {
-        echo "<script>
-            alert('Falha ao enviar um ou mais arquivos!');
-            window.location.href='subindo.php';
-        </script>";
-    }
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload de Imagens</title>
+    <title>Perfis de Imagens</title>
 </head>
 <body>
+    <h1>Perfis</h1>
+    <form action="img_index.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="foto" id="foto">
+        <input type="hidden" name="perfil_id" id="perfil_id">
+        <input type="submit" name="acao" value="Enviar">
+    </form>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Visualizar</th>
+                <th>Nome da Imagem</th>
+                <th>Data de Envio</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php 
+        include_once('../banco/config.php');
+        $sql_query = $mysqli->query("SELECT * FROM principais LIMIT 4") or die($mysqli->error);
+        while($arquivo = $sql_query->fetch_assoc()){
+        ?> 
+            <tr id="perfil-<?= $arquivo['id']; ?>">
+                <td>
+                    <a target="_blank" href="<?= $arquivo['path']; ?>">
+                        <img height="50" src="<?= $arquivo['path'] ?>" alt="">
+                    </a>
+                </td>
+                <td><?= $arquivo['nome_imagem']; ?></td>
+                <td><?= date("d/m/y", strtotime($arquivo['upload_date'])); ?></td>
+                <td>
+                    <button onclick="alterarImagem(<?= $arquivo['id']; ?>)">Alterar</button>
+                    <a href="deletar_img.php?deletar=<?= $arquivo['id']; ?>">Deletar</a>
+                </td>
+            </tr>
+        <?php 
+        }
+        ?>
+        </tbody>
+    </table>
+    <a href="../pagina_aposta/img_index.php">Voltar</a>
 
-<form action="cadastro_img_unica.php" method="post" enctype="multipart/form-data">
-    <div>
-        <label for="foto1">Foto 1:</label>
-        <input type="file" name="foto[]" id="foto1">
-        <input type="text" name="nome_imagem[]" placeholder="Nome da imagem 1">
-    </div>
-    <div>
-        <label for="foto2">Foto 2:</label>
-        <input type="file" name="foto[]" id="foto2">
-        <input type="text" name="nome_imagem[]" placeholder="Nome da imagem 2">
-    </div>
-    <div>
-        <label for="foto3">Foto 3:</label>
-        <input type="file" name="foto[]" id="foto3">
-        <input type="text" name="nome_imagem[]" placeholder="Nome da imagem 3">
-    </div>
-    <input type="submit" name="acao" value="Enviar">
-</form>
+    <script>
+        function alterarImagem(perfilId) {
+            document.getElementById('perfil_id').value = perfilId;
+            document.getElementById('foto').click();
+        }
 
-
-    <a href="../pagina_aposta/subindo.php">Voltar</a>
+        document.getElementById('foto').onchange = function() {
+            this.form.submit();
+        };
+    </script>
 </body>
 </html>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto'])) {
+    $perfil_id = $_POST['perfil_id'];
+    $nome_imagem = $_FILES['foto']['name'];
+    $tmp_name = $_FILES['foto']['tmp_name'];
+    $error = $_FILES['foto']['error'];
+    $size = $_FILES['foto']['size'];
+    
+    $uploadStatus = enviar_Arquivo($error, $size, $nome_imagem, $tmp_name, $nome_imagem, $mysqli);
+
+    if ($uploadStatus === true) {
+        $path = $mysqli->query("SELECT path FROM principais WHERE id='$perfil_id'")->fetch_assoc()['path'];
+        if (unlink($path)) {
+            $novo_nome = uniqid();
+            $extensao = strtolower(pathinfo($nome_imagem, PATHINFO_EXTENSION));
+            $novo_path = "../uploads/" . $novo_nome . "." . $extensao;
+            move_uploaded_file($tmp_name, $novo_path);
+            $stmt = $mysqli->prepare("UPDATE principais SET path = ?, nome_imagem = ?, upload_date = ? WHERE id = ?");
+            $upload_date = date("Y-m-d H:i:s");
+            $stmt->bind_param("sssi", $novo_path, $nome_imagem, $upload_date, $perfil_id);
+            $stmt->execute();
+            $stmt->close();
+        }
+    } else {
+        echo $uploadStatus;
+    }
+
+    echo "<script>window.location.href='img_index.php';</script>";
+}
+?>
