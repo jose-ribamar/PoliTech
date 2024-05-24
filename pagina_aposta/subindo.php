@@ -13,5 +13,7 @@
         <input type="text" name="nome_imagem" id="idnome_imagem">
         <input type="submit" name="acao" value="Enviar">
     </form>
+
+    <a href="../campo_img/img_index.php"> img </a>
 </body>
 </html>
